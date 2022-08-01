@@ -1,0 +1,254 @@
+/* General Styles */
+:root {
+  --background: #fafafa;
+  --white: #ffffff;
+  --black: #000000;
+  --text-color: #4d4d4d;
+  transition: 0.4s ease;
+  font-size: 16px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.d-none {
+  display: none;
+}
+.d-block {
+  display: block;
+}
+
+.subheading {
+  color: var(--black);
+  font-family: "Varguina", sans-serif;
+  font-size: 40px;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1;
+}
+.subheading:hover .star {
+  animation-play-state: paused;
+}
+
+a {
+  text-decoration: none;
+  color: var(--black);
+}
+
+.btn {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 16px 32px;
+  font-family: "Varguina", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.star {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: 3s infinite normal rotateItem;
+}
+
+.star img {
+  width: 24px;
+  height: 24px;
+}
+
+.fix-padding {
+  padding-top: 100px;
+}
+
+.top-line {
+  width: 100%;
+  position: absolute;
+  height: 1px;
+  background-color: var(--black);
+  top: 100px;
+  z-index: 9;
+}
+
+.bottom-line {
+  width: 100%;
+  position: absolute;
+  height: 1px;
+  background-color: var(--black);
+  bottom: 100px;
+  z-index: 99;
+}
+
+.sidebar {
+  position: fixed;
+  top: 110px;
+  right: 4%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.theme-toggle-desktop {
+  height: 32px;
+  width: 32px;
+  background-color: var(--black);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-bottom: 24px;
+}
+.theme-toggle-desktop img {
+  width: 16px;
+  height: auto;
+}
+
+.theme-toggle-mobile {
+  height: 40px;
+  width: 40px;
+  background-color: var(--black);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.theme-toggle-mobile img {
+  width: 16px;
+  height: auto;
+}
+
+.page-progress-path {
+  width: 10px;
+  height: 200px;
+  border: 1px solid var(--black);
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 32px;
+}
+.pp-bar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 0%;
+  background-color: var(--black);
+}
+
+.sidebar-social-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.s-link {
+  height: 35px;
+  width: 35px;
+  border: 1px solid var(--black);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.s-link-inner {
+  background-color: var(--black);
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.s-link-inner::before {
+  position: absolute;
+  content: "";
+  width: 2.5px;
+  height: 2.5px;
+  background-color: var(--black);
+  border-radius: 50%;
+  top: 50%;
+  left: -3px;
+  transform: translateY(-50%);
+}
+.s-link-inner::after {
+  position: absolute;
+  content: "";
+  width: 2.5px;
+  height: 2.5px;
+  background-color: var(--black);
+  border-radius: 50%;
+  top: 50%;
+  right: -3px;
+  transform: translateY(-50%);
+}
+.s-link-inner img {
+  width: 14px;
+  height: auto;
+}
+
+@media screen and (max-width: 820px) {
+  .subheading {
+    font-size: 32px;
+  }
+}
+
+/* ==== Main Styles ==== */
+body {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1;
+  background-color: var(--background);
+  color: var(--black);
+  transition: 0.5s ease;
+  transition-property: background-color, color;
+  position: relative;
+  overscroll-behavior-y: none;
+}
+
+/* ==== Rotating Effect ==== */
+@keyframes rotateItem {
+  0% {
+    transform: rotate(0) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.2);
+  }
+  75% {
+    transform: rotate(360deg) scale(0.9);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+@keyframes scrollingSkills {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-270%);
+  }
+}
+
+@keyframes scrollingSkillsMobile {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-920%);
+  }
+}
