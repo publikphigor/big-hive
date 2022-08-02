@@ -38,6 +38,10 @@ section {
   max-width: var(--maxW);
   margin: 0 auto 64px;
   padding: 64px 0 0;
+  background-image: url("/assets/blob_1.svg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .main--heading,
 .subheading {
@@ -196,6 +200,10 @@ nav ul li.w-100::after {
 /* ==== hero section ==== */
 #hero {
   padding: 56px 0;
+  background-image: url("/assets/blob_hero.svg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .hero--inner {
   width: 100%;
@@ -290,8 +298,17 @@ nav ul li.w-100::after {
 }
 
 /* ==== gallery section ==== */
-#gallery {
-  border-top: 1px solid var(--accent);
+#gallery .subheading {
+  position: relative;
+}
+#gallery .subheading::before {
+  width: 50px;
+  height: 3px;
+  background-color: var(--secondary);
+  position: absolute;
+  top: -10px;
+  left: 5px;
+  content: "";
 }
 .gallery--inner {
   display: grid;
@@ -311,6 +328,98 @@ nav ul li.w-100::after {
   object-fit: cover;
 }
 
+/* ==== testimonials section ==== */
+#testimonial {
+  position: relative;
+  padding-bottom: 32px;
+}
+#testimonial .subheading {
+  text-align: center;
+}
+.testimonial__slider {
+  width: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+}
+.testimonial__slide {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+.testimonial__slide--text {
+  font-style: italic;
+}
+
+#testimonial button {
+  height: 100%;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#testimonial button ion-icon {
+  font-size: 32px;
+}
+.slide__prev--btn {
+  left: 32px;
+}
+.slide__next--btn {
+  right: 32px;
+}
+
+footer {
+  background: var(--black);
+  color: #fff;
+  padding: 32px 0;
+  font-size: 14px;
+}
+.footer--inner {
+  width: 80%;
+  max-width: 1320px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.col-4 {
+  width: 32.5%;
+}
+.footer--heading {
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+footer a {
+  color: #ffffff;
+  display: block;
+  padding: 10px 0;
+}
+footer a:hover {
+  color: var(--primary);
+}
+.footer__social--links {
+  width: 80%;
+  max-width: 1320px;
+  margin: 16px auto;
+  display: flex;
+  justify-content: flex-start;
+  gap: 24px;
+}
+.footer__social--links a ion-icon {
+  font-size: 24px;
+}
+.copyright {
+  text-align: center;
+}
+.copyright a {
+  display: inline;
+}
 /* ==== Rotating Effect ==== */
 @keyframes rotateItem {
   0% {
