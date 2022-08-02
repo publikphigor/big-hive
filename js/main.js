@@ -6,12 +6,13 @@
 
 */
 
+const navLinks = document.querySelectorAll("nav ul li");
 const mobileNavbar = document.querySelector(".mobile-navbar");
 const mobileNavbarInner = document.querySelector(".mobile-navbar-inner");
 const navBtn = document.querySelector(".burger");
 const overlay = document.querySelector(".overlay");
 const root = document.documentElement;
-const navLinks = document.querySelectorAll("nav ul li");
+const scrollToTopBtn = document.querySelector(".scroll-to-top");
 
 function setDarkTheme() {
   root.style.setProperty("--background", "#121212");
@@ -33,6 +34,7 @@ function openAndCloseNavbar() {
   overlay.classList.toggle("active");
 }
 
+// animate hover state on navbar links (desktop)
 function showPointer(links) {
   links.forEach((link) => {
     link.addEventListener("mouseenter", function () {
@@ -43,5 +45,9 @@ function showPointer(links) {
     });
   });
 }
-
 showPointer(navLinks);
+
+// scroll to top
+scrollToTopBtn.addEventListener("click", function (e) {
+  window.scrollTo(0, 0);
+});
