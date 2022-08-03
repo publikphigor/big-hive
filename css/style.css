@@ -652,6 +652,12 @@ nav ul li.w-100::after {
 }
 
 @media screen and (max-width: 540px) {
+  .gallery--inner-left > div {
+    animation: infiniteSlideLeft 20s infinite linear;
+  }
+  .gallery--inner-right > div {
+    animation: infiniteSlideRight 17s infinite linear;
+  }
   .testimonial__slider {
     width: 80%;
   }
