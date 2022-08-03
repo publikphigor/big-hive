@@ -52,7 +52,7 @@ section {
   margin: 0 auto 64px;
   padding: 64px 0 0;
   background-attachment: fixed;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
 }
 section:nth-child(odd) {
@@ -68,7 +68,7 @@ section:nth-child(even) {
   margin: 24px 0;
 }
 .main--heading {
-  font-size: 72px;
+  font-size: 60px;
   font-weight: 300;
 }
 .subheading {
@@ -110,9 +110,9 @@ p {
   border: 2px solid var(--secondary);
 }
 .btn--outline {
-  color: var(--black);
+  color: var(--text-color);
   background-color: none;
-  border: 2px solid var(--black);
+  border: 2px solid var(--text-color);
 }
 .btn:hover {
   border-color: var(--elevated-dark-bg);
@@ -144,7 +144,7 @@ p {
 }
 
 .fix--padding {
-  padding-top: 100px;
+  padding-top: 0;
 }
 
 .w-100 {
@@ -186,6 +186,10 @@ p {
   }
 }
 @media screen and (max-width: 540px) {
+  .fix--padding {
+    padding-top: 85px;
+  }
+
   .scroll-to-top {
     right: 24px;
     bottom: 50px;
@@ -256,6 +260,7 @@ nav ul li.w-100::after {
 
 .theme--toggle--btn ion-icon {
   font-size: 24px;
+  color: var(--text-color);
 }
 
 /* ==== mobile header and navbar ==== */
@@ -264,6 +269,10 @@ nav ul li.w-100::after {
   padding: 24px;
   border-bottom: 1px solid var(--text-color);
   display: none;
+  position: absolute;
+  top: 0;
+  z-index: 999;
+  background-color: var(--background);
 }
 .mobile-header__inner {
   display: flex;
@@ -281,6 +290,7 @@ nav ul li.w-100::after {
 }
 .mobile-toggles__theme ion-icon {
   font-size: 32px;
+  color: var(--text-color);
 }
 .mobile-toggles__navbar {
   width: 32px;
@@ -325,11 +335,15 @@ nav ul li.w-100::after {
   color: var(--text-color);
   position: absolute;
   top: 100px;
-  z-index: 999;
+  z-index: 900;
   padding: 32px;
   width: 100%;
   height: 100vh;
   transform: translateY(-200%);
+  transition: 0.4s ease;
+}
+.mobile-navbar.active {
+  transform: translateY(0);
 }
 .mobile-navbar__inner {
   height: 70%;
@@ -529,16 +543,26 @@ nav ul li.w-100::after {
   content: "";
 }
 .gallery--inner {
-  display: grid;
+  display: flex;
   width: 100%;
   overflow: hidden;
-  height: 500px;
-  grid-template-columns: repeat(7, minmax(250px, 400px));
-  grid-template-rows: repeat(2, 1fr);
+  height: 300px;
   gap: 8px;
+  margin-bottom: 8px;
 }
 .gallery--inner > div {
   overflow: hidden;
+  flex-shrink: 0;
+  width: 350px;
+}
+.gallery--inner-left > div {
+  animation: infiniteSlideLeft 15s infinite linear;
+}
+.gallery--inner-right > div {
+  animation: infiniteSlideRight 12s infinite linear;
+}
+.gallery--inner:hover > div {
+  animation-play-state: paused;
 }
 .gallery--inner > div img {
   width: 100%;
@@ -582,6 +606,7 @@ nav ul li.w-100::after {
   transform: translateY(-50%);
 }
 #testimonial button ion-icon {
+  color: var(--text-color);
   font-size: 32px;
 }
 .slide__prev--btn {
@@ -707,35 +732,19 @@ footer a:hover {
   }
 }
 /* ==== Rotating Effect ==== */
-@keyframes rotateItem {
-  0% {
-    transform: rotate(0) scale(1);
-  }
-  50% {
-    transform: rotate(180deg) scale(1.2);
-  }
-  75% {
-    transform: rotate(360deg) scale(0.9);
-  }
-  100% {
-    transform: rotate(360deg) scale(1);
-  }
-}
-
-@keyframes scrollingSkills {
+@keyframes infiniteSlideLeft {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-270%);
+    transform: translateX(-3000px);
   }
 }
-
-@keyframes scrollingSkillsMobile {
+@keyframes infiniteSlideRight {
   0% {
-    transform: translateX(0);
+    transform: translateX(-2000px);
   }
   100% {
-    transform: translateX(-920%);
+    transform: translateX(0);
   }
 }
