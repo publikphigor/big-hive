@@ -13,7 +13,6 @@ const mobileNavbarBtn = document.querySelector(".mobile-toggles__navbar");
 const navBtn = document.querySelector(".burger");
 const desktopHeader = document.querySelector("header");
 const mobileHeader = document.querySelector(".mobile-header");
-const headers = [desktopHeader, mobileHeader];
 const heroSection = document.querySelector("#hero");
 const root = document.documentElement;
 const themeBtns = document.querySelectorAll(".theme-switch");
@@ -57,14 +56,10 @@ function openAndCloseNavbar() {
 const revealHeader = function (entries) {
   const [entry] = entries;
   if (!entry.isIntersecting) {
-    headers.forEach((header) => {
-      header.classList.add("reveal");
-    });
+    desktopHeader.classList.add("reveal");
     scrollToTopBtn.classList.add("reveal");
   } else {
-    headers.forEach((header) => {
-      header.classList.remove("reveal");
-    });
+    desktopHeader.classList.remove("reveal");
     scrollToTopBtn.classList.remove("reveal");
   }
 };
