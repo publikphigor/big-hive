@@ -18,6 +18,10 @@ const root = document.documentElement;
 const themeBtns = document.querySelectorAll(".theme-switch");
 const scrollToTopBtn = document.querySelector(".scroll-to-top");
 const allSections = document.querySelectorAll(".section--slide");
+const testSlider = document.querySelector(".testimonial__slider-inner");
+const testSlides = document.querySelectorAll(".testimonial__slide");
+const nextSlideBtn = document.querySelector(".slide__next--btn");
+const prevSlideBtn = document.querySelector(".slide__prev--btn");
 
 /*
 
@@ -125,4 +129,24 @@ themeBtns.forEach((btn) => {
       btn.classList.add("light");
     }
   });
+});
+
+// testimonial slider
+let curSlide = 0;
+nextSlideBtn.addEventListener("click", function () {
+  if (curSlide === testSlides.length - 1) {
+    curSlide = 0;
+  } else {
+    curSlide++;
+  }
+  testSlider.style.transform = `translateX(${-25 * curSlide}%)`;
+});
+
+prevSlideBtn.addEventListener("click", function () {
+  if (curSlide === 0) {
+    curSlide = testSlides.length - 1;
+  } else {
+    curSlide--;
+  }
+  testSlider.style.transform = `translateX(${-25 * curSlide}%)`;
 });

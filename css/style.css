@@ -615,7 +615,13 @@ nav ul li.w-100::after {
   width: 50%;
   margin: 0 auto;
   overflow: hidden;
+}
+.testimonial__slider-inner {
+  width: 400%;
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  transition: transform 0.4s;
 }
 .testimonial__slide {
   flex-shrink: 0;
@@ -623,7 +629,7 @@ nav ul li.w-100::after {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 25%;
   margin: 0 auto;
 }
 .testimonial__slide--text {
