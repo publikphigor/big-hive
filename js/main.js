@@ -22,6 +22,7 @@ const testSlider = document.querySelector(".testimonial__slider-inner");
 const testSlides = document.querySelectorAll(".testimonial__slide");
 const nextSlideBtn = document.querySelector(".slide__next--btn");
 const prevSlideBtn = document.querySelector(".slide__prev--btn");
+let curSlide = 0;
 
 /*
 
@@ -50,6 +51,23 @@ function openAndCloseNavbar() {
   mobileNavbarBtn.classList.toggle("active");
 }
 
+function nextSlide() {
+  if (curSlide === testSlides.length - 1) {
+    curSlide = 0;
+  } else {
+    curSlide++;
+  }
+  testSlider.style.transform = `translateX(${-25 * curSlide}%)`;
+}
+
+function prevSlide() {
+  if (curSlide === 0) {
+    curSlide = testSlides.length - 1;
+  } else {
+    curSlide--;
+  }
+  testSlider.style.transform = `translateX(${-25 * curSlide}%)`;
+}
 /*
 
 ===================================== EVENT HANDLERS ===============================================
@@ -132,21 +150,7 @@ themeBtns.forEach((btn) => {
 });
 
 // testimonial slider
-let curSlide = 0;
-nextSlideBtn.addEventListener("click", function () {
-  if (curSlide === testSlides.length - 1) {
-    curSlide = 0;
-  } else {
-    curSlide++;
-  }
-  testSlider.style.transform = `translateX(${-25 * curSlide}%)`;
-});
+nextSlideBtn.addEventListener("click", nextSlide);
+prevSlideBtn.addEventListener("click", prevSlide);
 
-prevSlideBtn.addEventListener("click", function () {
-  if (curSlide === 0) {
-    curSlide = testSlides.length - 1;
-  } else {
-    curSlide--;
-  }
-  testSlider.style.transform = `translateX(${-25 * curSlide}%)`;
-});
+setInterval(nextSlide, 4000);
