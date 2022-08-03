@@ -18,6 +18,7 @@ const root = document.documentElement;
 const themeBtns = document.querySelectorAll(".theme-switch");
 const scrollToTopBtn = document.querySelector(".scroll-to-top");
 const allSections = document.querySelectorAll(".section--slide");
+const testimonialSection = document.querySelector("#testimonial");
 const testSlider = document.querySelector(".testimonial__slider-inner");
 const testSlides = document.querySelectorAll(".testimonial__slide");
 const nextSlideBtn = document.querySelector(".slide__next--btn");
@@ -153,4 +154,16 @@ themeBtns.forEach((btn) => {
 nextSlideBtn.addEventListener("click", nextSlide);
 prevSlideBtn.addEventListener("click", prevSlide);
 
-setInterval(nextSlide, 4000);
+function activateSlider(entries, observer) {
+  const [entry] = entries;
+  console.log(entry);
+  if (!entry.isIntersecting) return;
+  setInterval(nextSlide, 4000);
+  observer.unobserve(entry.target);
+}
+const testimonialObserver = new IntersectionObserver(activateSlider, {
+  root: null,
+  threshold: 0.5,
+});
+
+testimonialObserver.observe(testimonialSection);
