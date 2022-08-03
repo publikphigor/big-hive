@@ -13,9 +13,12 @@ const mobileNavbarBtn = document.querySelector(".mobile-toggles__navbar");
 const navBtn = document.querySelector(".burger");
 const desktopHeader = document.querySelector("header");
 const mobileHeader = document.querySelector(".mobile-header");
+const headers = [desktopHeader, mobileHeader];
+const heroSection = document.querySelector("#hero");
 const root = document.documentElement;
 const themeBtns = document.querySelectorAll(".theme-switch");
 const scrollToTopBtn = document.querySelector(".scroll-to-top");
+const allSections = document.querySelectorAll(".section--slide");
 
 /*
 
@@ -44,9 +47,49 @@ function openAndCloseNavbar() {
   mobileNavbarBtn.classList.toggle("active");
 }
 
-function showHeader(entries, observer) {
-  const { entry } = entries;
-}
+/*
+
+===================================== EVENT HANDLERS ===============================================
+
+*/
+
+// Reveal header on scroll
+const revealHeader = function (entries) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) {
+    headers.forEach((header) => {
+      header.classList.add("reveal");
+    });
+    scrollToTopBtn.classList.add("reveal");
+  } else {
+    headers.forEach((header) => {
+      header.classList.remove("reveal");
+    });
+    scrollToTopBtn.classList.remove("reveal");
+  }
+};
+const headerObserver = new IntersectionObserver(revealHeader, {
+  root: null,
+  threshold: 0,
+});
+headerObserver.observe(heroSection);
+
+// Reveal section on scroll
+const revealSection = function (entries, observer) {
+  const [entry] = entries;
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove("section--hidden");
+  observer.unobserve(entry.target);
+};
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
+});
+
+allSections.forEach((section) => {
+  section.classList.add("section--hidden");
+  sectionObserver.observe(section);
+});
 
 /*
 
