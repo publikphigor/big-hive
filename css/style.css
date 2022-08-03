@@ -366,7 +366,7 @@ nav ul li.w-100::after {
   background-color: var(--background);
   color: var(--text-color);
   position: fixed;
-  top: 85px;
+  top: 80px;
   z-index: 900;
   padding: 32px;
   width: 100%;
