@@ -11,6 +11,8 @@ const mobileNavbar = document.querySelector(".mobile-navbar");
 const mobileNavbarInner = document.querySelector(".mobile-navbar-inner");
 const mobileNavbarBtn = document.querySelector(".mobile-toggles__navbar");
 const navBtn = document.querySelector(".burger");
+const desktopHeader = document.querySelector("header");
+const mobileHeader = document.querySelector(".mobile-header");
 const root = document.documentElement;
 const themeBtns = document.querySelectorAll(".theme-switch");
 const scrollToTopBtn = document.querySelector(".scroll-to-top");
@@ -40,6 +42,10 @@ function setLightTheme() {
 function openAndCloseNavbar() {
   mobileNavbar.classList.toggle("active");
   mobileNavbarBtn.classList.toggle("active");
+}
+
+function showHeader(entries, observer) {
+  const { entry } = entries;
 }
 
 /*
