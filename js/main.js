@@ -124,6 +124,10 @@ allSections.forEach((section) => {
 
 // Navbar toggle
 mobileNavbarBtn.addEventListener("click", openAndCloseNavbar);
+mobileNavbar.addEventListener("click", function (e) {
+  if (e.target.closest("ul").classList.contains("mobile-navbar-links"))
+    openAndCloseNavbar();
+});
 // animate hover state on navbar links (desktop)
 function showPointer(links) {
   links.forEach((link) => {
