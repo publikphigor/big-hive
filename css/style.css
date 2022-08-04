@@ -201,6 +201,9 @@ p {
   }
 }
 @media screen and (max-width: 540px) {
+  .main--heading {
+    text-align: center;
+  }
   .fix--padding {
     padding-top: 85px;
   }
@@ -508,6 +511,9 @@ nav ul li.w-100::after {
   .hero--inner-first,
   .hero--inner-second {
     width: 100%;
+  }
+  .hero--inner-first {
+    padding: 32px 0;
   }
 }
 @media screen and (max-width: 400px) {
