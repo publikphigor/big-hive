@@ -164,7 +164,7 @@ prevSlideBtn.addEventListener("click", prevSlide);
 function activateSlider(entries, observer) {
   const [entry] = entries;
   if (!entry.isIntersecting) return;
-  setInterval(nextSlide, 4000);
+  setInterval(nextSlide, 6000);
   observer.unobserve(entry.target);
 }
 const testimonialObserver = new IntersectionObserver(activateSlider, {
