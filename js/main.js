@@ -13,6 +13,8 @@ const mobileNavbarBtn = document.querySelector(".mobile-toggles__navbar");
 const navBtn = document.querySelector(".burger");
 const desktopHeader = document.querySelector("header");
 const mobileHeader = document.querySelector(".mobile-header");
+const desktopLogo = desktopHeader.querySelector("img");
+const mobileLogo = mobileHeader.querySelector("img");
 const heroSection = document.querySelector("#hero");
 const root = document.documentElement;
 const themeBtns = document.querySelectorAll(".theme-switch");
@@ -34,6 +36,8 @@ let curSlide = 0;
 function setDarkTheme() {
   root.style.setProperty("--background", "#121212");
   root.style.setProperty("--text-color", "#ffffff");
+  desktopLogo.src = "assets/big_hive-logo-2.png";
+  mobileLogo.src = "assets/big_hive-logo-2.png";
   themeBtns.forEach((btn) => {
     btn.querySelector("ion-icon").name = "partly-sunny-outline";
   });
@@ -42,6 +46,8 @@ function setDarkTheme() {
 function setLightTheme() {
   root.style.setProperty("--background", "#e9ab17");
   root.style.setProperty("--text-color", "#000000");
+  desktopLogo.src = "assets/big_hive-logo-1.png";
+  mobileLogo.src = "assets/big_hive-logo-1.png";
   themeBtns.forEach((btn) => {
     btn.querySelector("ion-icon").name = "moon-outline";
   });
