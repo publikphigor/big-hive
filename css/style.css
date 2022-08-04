@@ -259,6 +259,9 @@ header.reveal {
 #desktop-logo {
   width: 200px;
 }
+#desktop-logo img {
+  width: 50px;
+}
 
 nav {
   width: 70%;
@@ -314,7 +317,10 @@ nav ul li.w-100::after {
 }
 #m-logo {
   display: inline-block;
-  width: 200px;
+  width: 50px;
+}
+#m-logo img {
+  width: 100%;
 }
 .mobile-toggles {
   display: flex;
@@ -735,6 +741,15 @@ footer {
 }
 .col-4 {
   width: 32.5%;
+}
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footer-logo img {
+  width: 200px;
 }
 .footer--heading {
   font-size: 20px;
